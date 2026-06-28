@@ -4,7 +4,7 @@ from fastapi import FastAPI
 
 from app.core.config import settings
 from app.core.database import engine, verify_database_connection
-from app.routers import health
+from app.routers import auth, health
 
 
 @asynccontextmanager
@@ -16,4 +16,5 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title=settings.APP_NAME, lifespan=lifespan)
 
+app.include_router(auth.router)
 app.include_router(health.router)
