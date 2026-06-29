@@ -43,3 +43,10 @@ uvicorn app.main:app --reload
 3. `alembic revision --autogenerate -m "add user table"`
 4. Review the generated file in `migrations/versions/`
 5. `alembic upgrade head`
+
+
+### Curl to auth/me
+ curl -X GET \
+    'http://127.0.0.1:8000/auth/me' \
+    -H 'accept: application/json' \
+    -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0MzE0MjQzYy03Y2JlLTQwODgtYTYzYy03OWExYjczZDlkODQiLCJ0diI6MiwiZXhwIjoxNzgzMzA3OTk2fQ.wZjBbw8SQF4t77U7Rd1wI7SktziAathAeVIIPRBKZY0'
